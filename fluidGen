@@ -1,0 +1,17 @@
+#dotnet tool install --global dotnet-ef
+
+dotnet new console -o EFFluidAPI
+cd EFFluidAPI
+ls
+read -p "
+Fresh dotnet console app
+"
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+read -p "
+Added design and provider packages for core
+"
+dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=PersonHistory;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+read -p "
+Database first using fluent API approach
+"
